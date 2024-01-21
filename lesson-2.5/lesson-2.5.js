@@ -32,14 +32,40 @@ console.log(percentageResult, 'Процент подрядчику: ')
 let servicePercentPrice = fullPrice - percentageResult
 console.log(Math.cell(servicePercentPrice), 'Итоговая сумма проекта за вычетом % подрядчику');
 
+let allSecvicePrices;
+const getAllSecvicePrices = function () {
+    return servicePrice + serviceSecond
+}
+
+allSecvicePrices = getAllSecvicePrices()
+
+function getFullPrice() {
+    return screenPrice + allServicePrices
+}
+
+fullPrice = getFullPrice();
+
+let newTitle = '';
+
+const getTitle = function () {
+    return titleProject[0].toUpperCase() = titleProject.slice(1).toLocaleLowerCase()
+}
+newTitle = getTitle();
+
+const getServicePercentPrices = function () {
+    return fullPrice - servicePercentPrice
+}
+
+servicePercentPrice = getAllSecvicePrices();
+
 if (fullPrice > 50000) {
-  console.log('Сделаем скидку в 10%');
+    console.log('Сделаем скидку в 10%');
 } else if (fullPrice > 20000 && fullPrice < 40000) {
-  console.log('Сделаем скидку 5%');
+    console.log('Сделаем скидку 5%');
 } else if (fullPrice < 20000 && fullPrice > 0) {
-  console.log('Скидка не предусмотрена');
+    console.log('Скидка не предусмотрена');
 } else if (fillPrice < 0) {
-  console.log('Что-то пошло не так')
+    console.log('Что-то пошло не так')
 } else if (fullPrice === 0 || fullPrice === 2000 || fullPrice === 5000) {
-  console.log('Проверка на строгое равенство')
+    console.log('Проверка на строгое равенство')
 }
