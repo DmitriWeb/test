@@ -27,7 +27,7 @@ let fullPrice = screenPrice + servicePrice + servicePriceSecond
 console.log(fullPrice);
 
 let percentageResult = fullPrice - (percentage / 100)
-console.log(percentageResult, 'Процент подрядчику: ')
+console.log(percentageResult, 'Процент подрядчику:')
 
 let servicePercentPrice = fullPrice - percentageResult
 console.log(Math.cell(servicePercentPrice), 'Итоговая сумма проекта за вычетом % подрядчику');
