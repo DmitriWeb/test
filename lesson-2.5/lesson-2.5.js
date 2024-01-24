@@ -1,46 +1,45 @@
-let screenPrice = 1000
-let percentage = 10
+let screenPrice = 1000;
+let percentage = 10;
 
-
-let titleProject = prompt('Оценка стоимости')
+let titleProject = prompt('Оценка стоимости');
 console.log(titleProject);
 
-let screensValue = prompt('шаблонные, с уникальным дизайном, с анимациями')
+let screensValue = prompt('шаблонные, с уникальным дизайном, с анимациями');
 console.log(screensValue);
 
-let responsive = prompt('Нужен ли респонсивный сайт')
+let responsive = prompt('Нужен ли респонсивный сайт');
 console.log(responsive);
 
 let service = prompt('Какой сервис нужен?');
 console.log(service);
 
-let servicePrice = +prompt('Сколько это будет стоить?')
+let servicePrice = +prompt('Сколько это будет стоить?');
 console.log(servicePrice);
 
-let serviceSecond = prompt('Какой дополнительный тип услуги нужен')
+let serviceSecond = prompt('Какой дополнительный тип услуги нужен');
 console.log(serviceSecond);
 
-let servicePriceSecond = +prompt('Сколько это будет стоить?')
+let servicePriceSecond = +prompt('Сколько это будет стоить?');
 console.log(servicePriceSecond);
 
-let fullPrice = screenPrice + servicePrice + servicePriceSecond
+let fullPrice = screenPrice + servicePrice + servicePriceSecond;
 console.log(fullPrice);
 
-let percentageResult = fullPrice - (percentage / 100)
-console.log(percentageResult, 'Процент подрядчику:')
+let percentageResult = fullPrice - (percentage / 100);
+console.log(percentageResult, 'Процент подрядчику:');
 
-let servicePercentPrice = fullPrice - percentageResult
-console.log(Math.cell(servicePercentPrice), 'Итоговая сумма проекта за вычетом % подрядчику');
+let servicePercentPrice = fullPrice - percentageResult;
+console.log(Math.ceil(servicePercentPrice), 'Итоговая сумма проекта за вычетом % подрядчику');
 
 let allSecvicePrices;
 const getAllSecvicePrices = function () {
-    return servicePrice + serviceSecond
-}
+    return servicePrice + servicePriceSecond;
+};
 
-allSecvicePrices = getAllSecvicePrices()
+allSecvicePrices = getAllSecvicePrices();
 
 function getFullPrice() {
-    return screenPrice + allServicePrices
+    return screenPrice + allSecvicePrices;
 }
 
 fullPrice = getFullPrice();
@@ -48,15 +47,15 @@ fullPrice = getFullPrice();
 let newTitle = '';
 
 const getTitle = function () {
-    return titleProject[0].toUpperCase() = titleProject.slice(1).toLocaleLowerCase()
-}
+    return titleProject[0].toUpperCase() + titleProject.slice(1).toLowerCase();
+};
 newTitle = getTitle();
 
 const getServicePercentPrices = function () {
-    return fullPrice - servicePercentPrice
-}
+    return fullPrice - servicePercentPrice;
+};
 
-servicePercentPrice = getAllSecvicePrices();
+servicePercentPrice = getServicePercentPrices();
 
 if (fullPrice > 50000) {
     console.log('Сделаем скидку в 10%');
@@ -64,8 +63,8 @@ if (fullPrice > 50000) {
     console.log('Сделаем скидку 5%');
 } else if (fullPrice < 20000 && fullPrice > 0) {
     console.log('Скидка не предусмотрена');
-} else if (fillPrice < 0) {
-    console.log('Что-то пошло не так')
+} else if (fullPrice < 0) {
+    console.log('Что-то пошло не так');
 } else if (fullPrice === 0 || fullPrice === 2000 || fullPrice === 5000) {
-    console.log('Проверка на строгое равенство')
+    console.log('Проверка на строгое равенство');
 }
