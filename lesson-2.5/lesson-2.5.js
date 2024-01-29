@@ -22,49 +22,43 @@ console.log(serviceSecond);
 let servicePriceSecond = +prompt('Сколько это будет стоить?');
 console.log(servicePriceSecond);
 
-let fullPrice = screenPrice + servicePrice + servicePriceSecond;
-console.log(fullPrice);
-
-let percentageResult = fullPrice - (percentage / 100);
-console.log(percentageResult, 'Процент подрядчику:');
-
-let servicePercentPrice = fullPrice - percentageResult;
-console.log(Math.ceil(servicePercentPrice), 'Итоговая сумма проекта за вычетом % подрядчику');
-
-let allSecvicePrices;
-const getAllSecvicePrices = function () {
-    return servicePrice + servicePriceSecond;
-};
-
-allSecvicePrices = getAllSecvicePrices();
+let fullPrice;
 
 function getFullPrice() {
-    return screenPrice + allSecvicePrices;
+    const allServicePrices = servicePrice + servicePriceSecond;
+    return screenPrice + allServicePrices;
 }
 
 fullPrice = getFullPrice();
+console.log(fullPrice);
+
+function getServicePercentPrices() {
+    const totalServicePrice = servicePrice + servicePriceSecond;
+    const contractorFee = (totalServicePrice * percentage) / 100;
+    return fullPrice - contractorFee;
+}
+
+let servicePercentPrice = getServicePercentPrices();
+console.log(Math.ceil(servicePercentPrice), 'Итоговая сумма проекта за вычетом % подрядчику');
+
+function getRollbackMessage(price) {
+    if (price > 50000) {
+        console.log('Сделаем скидку в 10%');
+    } else if (price > 40000 && price <= 50000) {
+        console.log('Сделаем скидку на заказ');
+    } else if (price > 20000 && price <= 40000) {
+        console.log('Сделаем скидку 5%');
+    } else {
+        console.log('Скидка не предусмотрена');
+    }
+}
+
+getRollbackMessage(fullPrice);
 
 let newTitle = '';
 
 const getTitle = function () {
-    return titleProject[0].toUpperCase() + titleProject.slice(1).toLowerCase();
+    return titleProject.trim().charAt(0).toUpperCase() + titleProject.slice(1).toLowerCase();
 };
 newTitle = getTitle();
-
-const getServicePercentPrices = function () {
-    return fullPrice - servicePercentPrice;
-};
-
-servicePercentPrice = getServicePercentPrices();
-
-if (fullPrice > 50000) {
-    console.log('Сделаем скидку в 10%');
-} else if (fullPrice > 20000 && fullPrice < 40000) {
-    console.log('Сделаем скидку 5%');
-} else if (fullPrice < 20000 && fullPrice > 0) {
-    console.log('Скидка не предусмотрена');
-} else if (fullPrice < 0) {
-    console.log('Что-то пошло не так');
-} else if (fullPrice === 0 || fullPrice === 2000 || fullPrice === 5000) {
-    console.log('Проверка на строгое равенство');
-}
+console.log(newTitle);
