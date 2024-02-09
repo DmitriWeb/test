@@ -1,10 +1,5 @@
-let screenPrice = 1000;
-let percentage = 10;
-let allServicePrices;
-let newTitle = '';
-let titleProject;
-let screensValue;
-let responsive;
+let fullPrice;
+let servicePercentPrice;
 
 const checkIsNumber = function (x) {
     return !isNaN(parseFloat(x)) && isFinite(x);
@@ -48,22 +43,25 @@ const getServicePercentPrices = function () {
 }
 
 const getTitle = function () {
+    const title = '   Скидка 20% на все услуги   ';
+    console.log(title.trim());
     return titleProject[0].toUpperCase() + titleProject.slice(1).toLowerCase();
 }
 
-let fullPrice;
-let servicePercentPrice;
+const getRollbackMessage = function () {
+    fullPrice = getFullPrice();
 
-if (fullPrice > 50000) {
-    console.log('Делаем скидку в 10%');
-} else if (fullPrice > 20000 && fullPrice < 40000) {
-    console.log('Делаем скидку в 5%');
-} else if (fullPrice < 20000 && fullPrice > 0) {
-    console.log('Скидка не предусмотрена');
-} else if (fullPrice < 0) {
-    console.log('Что-то пошло не так');
-} else if (fullPrice === 0 || fullPrice === 20000 || fullPrice === 50000) {
-    console.log('Проверка на строгое равенство');
+    if (fullPrice > 50000) {
+        return 'Делаем скидку в 10%';
+    } else if (fullPrice > 20000 && fullPrice < 40000) {
+        return 'Делаем скидку в 5%';
+    } else if (fullPrice < 20000 && fullPrice > 0) {
+        return 'Скидка не предусмотрена';
+    } else if (fullPrice < 0) {
+        return 'Что-то пошло не так';
+    } else if (fullPrice === 0 || fullPrice === 20000 || fullPrice === 50000) {
+        return 'Проверка на строгое равенство';
+    }
 }
 
 asking();
@@ -78,3 +76,5 @@ console.log(responsive);
 console.log(service);
 console.log(serviceSecond);
 console.log(servicePercentPrice);
+
+console.log(getRollbackMessage());
